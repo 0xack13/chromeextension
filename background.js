@@ -1,14 +1,11 @@
+searchTime = function(word) {
+    var query = word.selectionText;
+    alert(new Date(query))
+}
 
 chrome.contextMenus.create({
     id: "some-command",
-    title: "Pop up!",
-    contexts: ["all"]
-});
-chrome.contextMenus.onClicked.addListener(function(clickData) {
-    chrome.tabs.executeScript( {
-        code: "window.getSelection().toString();"
-    }, function(selection) {
-        var date = new Date(selection[0] + ' UTC');
-        alert(date.toString());
-    });
+    title: "To local time",
+    contexts: ["selection"],
+    onclick: searchTime
 });

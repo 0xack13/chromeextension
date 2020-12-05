@@ -1,16 +1,17 @@
 {
-  "name": "Getting Started Example",
+  "name": "TimeConverter",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "Convert to local zone",
   "permissions": [
     "tabs", "http://*/*", "https://*/*", "activeTab","declarativeContent","storage", "contextMenus"
   ],
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
-  "page_action": {
-    "default_popup": "popup.html"
-  },
+  "content_scripts": [{
+    "matches": ["https://*/*"],
+    "js": ["contentScript.js"]
+  }],
   "manifest_version": 2
 }
